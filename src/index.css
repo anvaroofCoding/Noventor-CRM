@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-trillioner: #525b75;
+}
