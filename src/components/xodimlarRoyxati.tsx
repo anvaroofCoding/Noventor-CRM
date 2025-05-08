@@ -17,7 +17,7 @@ const XodimlarRoyxati = () => {
 		}
 	}
 	const [employ, setEmploy] = useState([])
-	const [son, setSon] = useState<number>(1)
+	const [son, setSon] = useState(1)
 	const getPersons = async () => {
 		const token = localStorage.getItem('access_token')
 		if (!token) {
@@ -55,7 +55,7 @@ const XodimlarRoyxati = () => {
 	// const selector = useSelector(item => item)
 	const handleChange = (value: string) => {
 		console.log(`selected ${value}`)
-		setSon(value)
+		setSon(Number(value))
 	}
 	console.log(employ)
 	return (

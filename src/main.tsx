@@ -7,6 +7,7 @@ import Account from './components/account'
 import Clients from './components/clients'
 import Davomat from './components/davomat'
 import Hisobot from './components/hisobot'
+import Smanalar from './components/smanalar'
 import XodimlarRoyxati from './components/xodimlarRoyxati'
 import Login from './features/auth/login'
 import './index.css'
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')!).render(
 						<Route path='/royxat' element={<XodimlarRoyxati />} />
 						<Route path='/account-me' element={<Account />} />
 						<Route path='/' element={<Account />} />
+						<Route path='/smenalar' element={<Smanalar />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

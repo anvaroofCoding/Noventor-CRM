@@ -4,14 +4,57 @@ import {
 	LogoutOutlined,
 	TeamOutlined,
 } from '@ant-design/icons'
+import type { MenuProps } from 'antd'
 import { Layout, Menu } from 'antd'
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const { Sider } = Layout
 
-const Sidebar: React.FC = () => {
+const Sidebar = () => {
 	const navigate = useNavigate()
+
+	const menuItems: MenuProps['items'] = [
+		{
+			key: '1',
+			icon: <HomeOutlined />,
+			label: 'Xodimlar ro‘yxati',
+			onClick: () => navigate('/royxat'),
+		},
+		{
+			key: '2',
+			icon: <TeamOutlined />,
+			label: 'Xodimlar davomati',
+			onClick: () => navigate('/xodimlar-davomati'),
+		},
+		{
+			key: '3',
+			icon: <BarChartOutlined />,
+			label: 'Oylik hisobot',
+			onClick: () => navigate('/hisobot'),
+		},
+		{
+			key: '4',
+			icon: <TeamOutlined />,
+			label: 'Mijozlar',
+			onClick: () => navigate('/mijozlar'),
+		},
+		{
+			key: '6',
+			icon: <TeamOutlined />,
+			label: 'Smenalar',
+			onClick: () => navigate('/smenalar'),
+		},
+		{
+			key: '5',
+			icon: <LogoutOutlined />,
+			label: 'Yopish',
+			onClick: () => {
+				localStorage.removeItem('token')
+				navigate('/login')
+			},
+			style: { position: 'absolute', bottom: 20, width: '100%' },
+		},
+	]
 
 	return (
 		<Sider
@@ -23,51 +66,7 @@ const Sidebar: React.FC = () => {
 				borderRight: '1px solid rgba(0, 0, 0, 0.204)',
 			}}
 		>
-			<Menu mode='inline' defaultSelectedKeys={['1']}>
-				<Menu.Item
-					key='1'
-					icon={<HomeOutlined />}
-					onClick={() => navigate('/royxat')}
-				>
-					Xodimlar ro‘yxati
-				</Menu.Item>
-
-				<Menu.Item
-					key='2'
-					icon={<TeamOutlined />}
-					onClick={() => navigate('/xodimlar-davomati')}
-				>
-					Xodimlar davomati
-				</Menu.Item>
-
-				<Menu.Item
-					key='3'
-					icon={<BarChartOutlined />}
-					onClick={() => navigate('/hisobot')}
-				>
-					Oylik hisobot
-				</Menu.Item>
-
-				<Menu.Item
-					key='4'
-					icon={<TeamOutlined />}
-					onClick={() => navigate('/mijozlar')}
-				>
-					Mijozlar
-				</Menu.Item>
-
-				<Menu.Item
-					key='5'
-					icon={<LogoutOutlined />}
-					onClick={() => {
-						localStorage.removeItem('token')
-						navigate('/login')
-					}}
-					style={{ position: 'absolute', bottom: 20, width: '100%' }}
-				>
-					Yopish
-				</Menu.Item>
-			</Menu>
+			<Menu mode='inline' defaultSelectedKeys={['1']} items={menuItems} />
 		</Sider>
 	)
 }
