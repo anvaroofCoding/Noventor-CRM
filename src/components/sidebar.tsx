@@ -1,17 +1,21 @@
-import {
-	BarChartOutlined,
-	HomeOutlined,
-	LogoutOutlined,
-	TeamOutlined,
-} from '@ant-design/icons'
+import { HomeOutlined, LogoutOutlined, TeamOutlined } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 import { Layout, Menu } from 'antd'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const { Sider } = Layout
 
 const Sidebar = () => {
 	const navigate = useNavigate()
+	const location = useLocation()
+
+	const pathKeyMap: Record<string, string> = {
+		'/royxat': '1',
+		'/mijozlar': '4',
+		'/smenalar': '6',
+	}
+
+	const selectedKey = pathKeyMap[location.pathname] || '1'
 
 	const menuItems: MenuProps['items'] = [
 		{
@@ -19,18 +23,6 @@ const Sidebar = () => {
 			icon: <HomeOutlined />,
 			label: 'Xodimlar ro‘yxati',
 			onClick: () => navigate('/royxat'),
-		},
-		{
-			key: '2',
-			icon: <TeamOutlined />,
-			label: 'Xodimlar davomati',
-			onClick: () => navigate('/xodimlar-davomati'),
-		},
-		{
-			key: '3',
-			icon: <BarChartOutlined />,
-			label: 'Oylik hisobot',
-			onClick: () => navigate('/hisobot'),
 		},
 		{
 			key: '4',
@@ -66,7 +58,7 @@ const Sidebar = () => {
 				borderRight: '1px solid rgba(0, 0, 0, 0.204)',
 			}}
 		>
-			<Menu mode='inline' defaultSelectedKeys={['1']} items={menuItems} />
+			<Menu mode='inline' selectedKeys={[selectedKey]} items={menuItems} />
 		</Sider>
 	)
 }

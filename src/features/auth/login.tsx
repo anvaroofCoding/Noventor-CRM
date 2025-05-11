@@ -51,7 +51,7 @@ const Login = () => {
 				<img
 					src={noventor}
 					alt='noventor'
-					className='h-full w-full object-cover'
+					className='h-full w-full object-contain'
 				/>
 			</div>
 			<div className='flex justify-center items-center'>
