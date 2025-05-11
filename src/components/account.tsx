@@ -118,7 +118,8 @@ const Account = () => {
 				<div className='bg-[url(/src/assets/images/accaount.png)] w-full h-[204px] rounded-2xl flex justify-between items-center p-4'>
 					<div className='flex items-center justify-start gap-[30px] w-[372px] h-[86px]'>
 						<div className='w-[86px] h-[86px] rounded-2xl bg-white flex justify-center items-center'>
-							<h1 className='text-[42px] font-bold'>A</h1>
+							{/* <h1 className='text-[42px] font-bold'>A</h1> */}
+							<img src={user?.avatar} alt='' />
 						</div>
 						<div className='text-white'>
 							<h3>Xush Kelibsiz!</h3>
